@@ -1,16 +1,16 @@
 import React from "react";
-
+import "./Hello.css";
 function Hello() {
   const PracticeStyle ={
     marginTop: "20px", 
     backgroundColor: "red",
   }
   return( 
-    // inline style 2
+    // 외부파일 css
   <>
-  <div style={PracticeStyle}>Hello World</div>
-  <div style={{marginTop:"20px", backgroundColor:"blue"}}>Hello World</div>
-  <div style={{marginTop:"20px", backgroundColor:"blue"}}>Hello World</div>
+  <div className="red">Hello World</div>
+  <div class="red">Hello World</div>
+  <div className="red">Hello World</div>
   </>
   )
 }
