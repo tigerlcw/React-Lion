@@ -24,7 +24,7 @@ function ShowPostList( {isPost, loading, addPost, postList} ) {
         <>
         <PostSection>
             <PostTitleDiv>
-                <FontAwesomeIcon onclick={addPost} icon={faArrowsRotate} />
+                <FontAwesomeIcon onClick={addPost} icon={faArrowsRotate} />
                 <PostTitle>익명 게시판</PostTitle>
                 <FontAwesomeIcon icon={faPenToSquare} />
             </PostTitleDiv>

@@ -7,7 +7,7 @@ import {
 
 import {darkTheme, GlobalStyles, lightTheme} from './styles';
 import { ThemeProvider } from 'styled-components';
-import useState from 'react';
+import { useState } from 'react';
 import Header from './Header';
 import Slogun from './Slogun';
 import ShowPostList from './ShowPostList';
