@@ -1,12 +1,9 @@
 import {
-    EachPostLi,
     LoadingDiv,
     LoadingImg,
     PagenumberDiv,
     PagingSection,
-    PostLink,
     PostListDiv,
-    PostRepl,
     PostSection,
     PostTitle,
     PostTitleDiv,
@@ -15,18 +12,19 @@ import {
 import {
     faArrowsRotate,
     faPenToSquare,
-    faLocationPin,
+    faArrowsLeft,
+    faArrowsRight
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact } from '@fortawesome/free-brands-svg-icons';
-import loadingIcon from './loading.svg';
 
-function ShowPostList(isPost, loading) {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import EachPost from './EachPost';
+
+function ShowPostList( {isPost, loading, addPost, postList} ) {
     return(
         <>
         <PostSection>
             <PostTitleDiv>
-                <FontAwesomeIcon icon={faArrowsRotate} />
+                <FontAwesomeIcon onclick={addPost} icon={faArrowsRotate} />
                 <PostTitle>익명 게시판</PostTitle>
                 <FontAwesomeIcon icon={faPenToSquare} />
             </PostTitleDiv>
@@ -39,19 +37,26 @@ function ShowPostList(isPost, loading) {
                     <LoadingDiv>아직 작성된 글이 없습니다.</LoadingDiv>
                 ) : (
                     <ul>
-                        <EachPostLi>
-                            <div>
-                                <FontAwesomeIcon icon={faLocationPin} />
-                                <PostLink>한성대학교, 프론트엔드 팀</PostLink>
-                            </div>
-                            <PostRepl>[23]</PostRepl>
-                        </EachPostLi>
+                        {postList.map((element) => (
+                             <EachPost key={element.id} title={element.title} replCount={element.replCount} />
+                        ))}
+                       
                     </ul>
                 )}
             </PostListDiv>
         </PostSection>
 
-    
+        <PagingSection>
+            <PagenumberDiv>
+                <FontAwesomeIcon icon={faArrowsLeft} />
+            </PagenumberDiv>
+            <PagenumberDiv>
+                2
+            </PagenumberDiv>
+            <PagenumberDiv>
+                <FontAwesomeIcon icon={faArrowsRight} />
+            </PagenumberDiv>
+        </PagingSection>
         </>
     );
 }
