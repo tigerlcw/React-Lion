@@ -12,8 +12,8 @@ import {
 import {
     faArrowsRotate,
     faPenToSquare,
-    faArrowsLeft,
-    faArrowsRight
+    faArrowLeft,
+    faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,13 +48,13 @@ function ShowPostList( {isPost, loading, addPost, postList} ) {
 
         <PagingSection>
             <PagenumberDiv>
-                <FontAwesomeIcon icon={faArrowsLeft} />
+                <FontAwesomeIcon icon={faArrowLeft} />
             </PagenumberDiv>
             <PagenumberDiv>
                 2
             </PagenumberDiv>
             <PagenumberDiv>
-                <FontAwesomeIcon icon={faArrowsRight} />
+            <FontAwesomeIcon icon={faArrowRight} />
             </PagenumberDiv>
         </PagingSection>
         </>
