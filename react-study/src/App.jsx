@@ -8,10 +8,15 @@ import {
 import {darkTheme, GlobalStyles, lightTheme} from './styles';
 import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+
 import Header from './Header';
 import Slogun from './Slogun';
 import ShowPostList from './ShowPostList';
 import Footer from './Footer';
+import ShowPost from './ShowPost';
+import WritePost from './WritePost';
+
 
 function App() {
     const initialPostList = [
