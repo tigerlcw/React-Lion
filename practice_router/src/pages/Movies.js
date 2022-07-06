@@ -1,6 +1,6 @@
 import React from 'react';
 import { getMovies } from '../movie_data';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 
 const Movies = () => {
   const movies = getMovies();
@@ -10,13 +10,20 @@ const Movies = () => {
       <h1>영화 상세페이지</h1>
       <div>
         {movies.map((movie) => (
-          <Link
+          <NavLink
             to={`/movies/${movie.id}`}
             key={movie.id}
-            style={{ display: 'block', marginTop: '10px' }}
+            style={({ isActive }) => {
+              return {
+                textDecoration: isActive ? 'underline' : '',
+                color: isActive ? '#FF9E1B' : '',
+                display: 'block',
+                marginTop: '10px',
+              };
+            }}
           >
             {movie.title}
-          </Link>
+          </NavLink>
         ))}
       </div>
       <hr />
