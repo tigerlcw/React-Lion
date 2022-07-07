@@ -24,9 +24,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import EachPost from './EachPost';
 
 const initialPostList = [
-    {id:1, title: '한성대학교 멋사', replCount: 1},
-    {id:2, title: '한성대학교 멋사 프론트', replCount: 12},
-    {id:3, title: '한성대학교 멋사 백엔드', replCount: 32},
+    {id:1, title: '한성대학교 멋사'},
+    {id:2, title: '한성대학교 멋사 프론트'},
+    {id:3, title: '한성대학교 멋사 백엔드'},
 ];
 
 function ShowPostList( ) {
@@ -37,7 +37,7 @@ function ShowPostList( ) {
 
     const addPost = () => {
         setPostList((PostList) => [
-            ...PostList,{id:4, title: '한성대학교 멋사 새로운 글', replCount: 10},
+            ...PostList,{id:4, title: '한성대학교 멋사 새로운 글'},
         ]);
     };
 
@@ -50,7 +50,7 @@ function ShowPostList( ) {
         setTimeout(() => {
             setPostList(initialPostList);
             setLoading(false);
-        },3000)
+        },500)
     },[]); // 첫 한 번만 렌더링 하고자 빈 배열 삽입
 
     return(
@@ -66,14 +66,14 @@ function ShowPostList( ) {
             <PostListDiv>
                 {loading ? (
                     <LoadingDiv>
-                        <LoadingImg src={'./loading.svg'} />
+                        <LoadingImg src={'./test.jpg'} />
                     </LoadingDiv>        
                 ) : isPost? (
                     <LoadingDiv>아직 작성된 글이 없습니다.</LoadingDiv>
                 ) : (
                     <ul>
                         {postList.map((element) => (
-                             <EachPost key={element.id} title={element.title} replCount={element.replCount} />
+                             <EachPost key={element.id} title={element.title} postID={element.id} />
                         ))}
                        
                     </ul>
