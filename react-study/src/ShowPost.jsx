@@ -54,6 +54,7 @@ const ShowPost = (props) => {
     }, 1000);
   }, []);
 
+  //input 창 상태관리
   const [repl, setRepl] = useState('');
 
   const onChange = (e) => {
