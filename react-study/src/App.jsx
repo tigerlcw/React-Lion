@@ -17,24 +17,10 @@ import Footer from './Footer';
 import ShowPost from './ShowPost';
 import WritePost from './WritePost';
 
-
 function App() {
-    const initialPostList = [
-        {id:1, title: '한성대학교 멋사', replCount: 1},
-        {id:2, title: '한성대학교 멋사 프론트', replCount: 12},
-        {id:3, title: '한성대학교 멋사 백엔드', replCount: 32},
-    ];
 
     const [darkMode, setDarkMode] = useState(true);
-    const [loading, setLoading] = useState(false);
-    const [isPost, setIsPost] = useState(false);
-    const [postList, setPostList] = useState(initialPostList);
 
-    const addPost = () => {
-        setPostList((PostList) => [
-            ...PostList,{id:4, title: '한성대학교 멋사 새로운 글', replCount: 10},
-        ]);
-    }
     return (
     <>
     <ThemeProvider theme={darkMode?darkTheme:lightTheme}>
@@ -45,7 +31,11 @@ function App() {
             <Main>
                 <Slogun />
                 <Routes>
-                    <Route path="/" element={<ShowPostList loading={loading} isPost={isPost} postList={postList} addPost={addPost}/>}>
+                    <Route path="/" element={
+                    
+                    <ShowPostList />
+                    
+                    }>
 
                     </Route>
                     <Route path="/write" element={<WritePost />}>
