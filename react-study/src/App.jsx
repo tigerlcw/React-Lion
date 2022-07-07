@@ -44,7 +44,19 @@ function App() {
         <Header darkMode={darkMode} setDarkMode={setDarkMode} />
             <Main>
                 <Slogun />
-                <ShowPostList loading={loading} isPost={isPost} postList={postList} addPost={addPost}/>
+                <Routes>
+                    <Route path="/" element={<ShowPostList loading={loading} isPost={isPost} postList={postList} addPost={addPost}/>}>
+
+                    </Route>
+                    <Route path="/write" element={<WritePost />}>
+                    
+                    </Route>
+
+                    <Route path="/post/:postID" element={<ShowPost />}>
+                    
+                    </Route>
+                </Routes>
+                
             </Main>
         <Footer />
     </MediaDiv>
