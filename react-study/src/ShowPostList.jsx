@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import {
@@ -33,7 +33,7 @@ function ShowPostList( ) {
 
     const [loading, setLoading] = useState(false);
     const [isPost, setIsPost] = useState(false);
-    const [postList, setPostList] = useState(initialPostList);
+    const [postList, setPostList] = useState([]);
 
     const addPost = () => {
         setPostList((PostList) => [
@@ -45,6 +45,13 @@ function ShowPostList( ) {
     const goWrite = () => {
         navigate('/write');
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setPostList(initialPostList);
+            setLoading(false);
+        },3000)
+    },[]); // 첫 한 번만 렌더링 하고자 빈 배열 삽입
 
     return(
         <>
