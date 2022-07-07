@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import {
     LoadingDiv,
@@ -31,7 +31,7 @@ const initialPostList = [
 
 function ShowPostList( ) {
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [isPost, setIsPost] = useState(false);
     const [postList, setPostList] = useState([]);
 
@@ -66,7 +66,7 @@ function ShowPostList( ) {
             <PostListDiv>
                 {loading ? (
                     <LoadingDiv>
-                        <LoadingImg src={'./test.jpg'} />
+                        <LoadingImg src={`${process.env.PUBLIC_URL}/img/loading.svg`} />
                     </LoadingDiv>        
                 ) : isPost? (
                     <LoadingDiv>아직 작성된 글이 없습니다.</LoadingDiv>
@@ -80,7 +80,7 @@ function ShowPostList( ) {
                 )}
             </PostListDiv>
         </PostSection>
-
+        {loading || (                        
         <PagingSection>
             <PagenumberDiv>
                 <FontAwesomeIcon icon={faArrowLeft} />
@@ -92,6 +92,7 @@ function ShowPostList( ) {
             <FontAwesomeIcon icon={faArrowRight} />
             </PagenumberDiv>
         </PagingSection>
+        )};
         </>
     );
 }
